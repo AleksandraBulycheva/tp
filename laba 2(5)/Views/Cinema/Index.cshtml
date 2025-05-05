@@ -1,0 +1,43 @@
+@using Microsoft.AspNetCore.Html
+
+@model List<Cinema>
+
+@{
+    ViewData["Title"] = "Кинотеатры";
+}
+
+@functions {
+    public HtmlString InternalHelperMethod(List<Cinema> cinemas)
+    {
+        var html = "<table class='table'><thead><tr><th>ID</th><th>Название</th><th>Адрес</th><th>Телефон</th><th>Email</th><th>Количество залов</th><th>Год основания</th><th>Действия</th></tr></thead><tbody>";
+
+
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            var studio = cinemas[i];
+            html += $"<tr><td>{studio.Id}</td><td>{studio.Name}</td><td>{studio.Address}</td><td>{studio.Phone}</td><td>{studio.Email}</td><td>{studio.NumberOfHalls}</td><td>{studio.EstablishedYear}</td><td><a href='/Cinema/Details/{studio.Id}' class='btn btn-secondary'>Просмотр</a></td></tr>";
+        }
+
+        html += "</tbody></table>";
+        return new HtmlString(html);
+    }
+}
+
+<h2>@ViewBag.Title</h2>
+@Html.ActionLink("Добавить кинотеатр", "Create", null, null, new { @class = "btn btn-primary" })
+
+@{
+    bool useInternalMethod = TempData["UseInternalMethod"] as bool? ?? false;
+
+    if (useInternalMethod)
+    {
+        @InternalHelperMethod(Model)
+    }
+    else
+    {
+        @sasha_2.Helpers.CinemaHelpers.ExternalHelperMethod(Model)
+    }
+}
+
+<p>
+</p>
