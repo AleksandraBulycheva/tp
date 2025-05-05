@@ -1,0 +1,18 @@
+@model sasha_2.Models.Cinema
+
+@{
+    ViewData["Title"] = "Просмотр кинотеатра";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <hr />
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+    <div class="label-container">
+        @Html.LabelForModel()
+    </div>
+    <div class="display-container">
+        @Html.DisplayForModel()
+    </div>
+</div>
