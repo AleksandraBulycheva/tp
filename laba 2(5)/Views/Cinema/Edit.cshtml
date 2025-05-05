@@ -1,0 +1,47 @@
+@model sasha_2.Models.Cinema
+
+@{
+    ViewData["Title"] = "Редактирование";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name)
+                @Html.EditorFor(m => m.Name)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Address)
+                @Html.EditorFor(m => m.Address)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Phone)
+                @Html.EditorFor(m => m.Phone)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email)
+                @Html.EditorFor(m => m.Email)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.NumberOfHalls)
+                @Html.EditorFor(m => m.NumberOfHalls)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.EstablishedYear)
+                @Html.EditorFor(m => m.EstablishedYear)
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit">Сохранить</button>
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Назад к списку", "Index")
+</div>
