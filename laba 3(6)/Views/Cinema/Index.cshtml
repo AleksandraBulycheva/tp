@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Кинотеатр";
+}
+
+<h2>Форма ввода данных о фильме</h2>
+
+<form asp-action="Index" method="post">
+    <div>
+        <label>Идентификатор (может быть null):</label>
+        <input type="number" name="id" />
+    </div>
+    <div>
+        <label>Название:</label>
+        <input type="text" name="name" />
+    </div>
+    <div>
+        <label>Доступен:</label>
+        <input type="checkbox" name="isAvailable" />
+    </div>
+    <div>
+        <label>Жанр:</label>
+        <input type="text" name="genre" />
+    </div>
+    <div>
+        <label>Описание:</label>
+        <textarea name="description"></textarea>
+    </div>
+    <button type="submit">Отправить</button>
+</form>
